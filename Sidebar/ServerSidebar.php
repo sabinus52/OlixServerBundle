@@ -52,6 +52,11 @@ class ServerSidebar
             'icon'  => 'fa fa-circle fa-fw',
             'route' => 'olix_server_monit',
         ));
+        $server->addChild('olix_server_collectd', array(
+            'label' => 'Monitoring',
+            'icon'  => 'fa fa-area-chart fa-fw',
+            'route' => 'olix_server_collectd',
+        ));
     }
 
 }
