@@ -1,0 +1,30 @@
+{
+    "name" : "olix/server-bundle",
+    "description" : "Symfony OlixServerBundle",
+    "type" : "symfony-bundle",
+    "homepage" : "https://github.com/sabinus52/OlixServerBundle",
+    "license" : "GPL-2.0",
+    "authors" : [{
+            "name" : "Olivier",
+            "email" : "sabinus52@gmail.com"
+        }
+    ],
+    "keywords" : [
+        "olix",
+        "symfony",
+        "admin",
+        "back office",
+        "security",
+        "server",
+        "monit",
+        "collectd"
+    ],
+    "require": {
+        "symfony/symfony": "~2.6"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Olix\\ServerBundle\\" : ""
+        }
+    }
+}
