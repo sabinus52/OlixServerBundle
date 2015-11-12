@@ -1,0 +1,6 @@
+###
+# Gestion avec MONIT
+##
+olix_server_monit:
+    pattern:  /server/monit
+    defaults: { _controller: "OlixServerBundle:Monit:index" }

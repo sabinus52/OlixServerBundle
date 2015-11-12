@@ -47,6 +47,11 @@ class ServerSidebar
             'label' => 'Gestion du serveur',
             'icon'  => 'fa fa-server fa-fw',
         ));
+        $server->addChild('olix_server_monit', array(
+            'label' => 'Gestion des services',
+            'icon'  => 'fa fa-circle fa-fw',
+            'route' => 'olix_server_monit',
+        ));
     }
 
 }
