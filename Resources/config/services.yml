@@ -1,3 +1,6 @@
 
 services:
 
+    olix_server.sidebar:
+        class: Olix\ServerBundle\Sidebar\ServerSidebar
+        arguments: [ "@security.context" ]
