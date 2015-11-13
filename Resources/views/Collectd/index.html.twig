@@ -87,52 +87,6 @@
             </div>
         </div>
 
-        <div class="col-sm-12">
-            <div class="olix-portlet olix-portlet-border">
-                <div class="olix-portlet-header">
-                    <div class="icon"><i class="fa fa-area-chart"></i></div>
-                    <div class="title">Monitoring de PostgreSQL</div>
-                    <div class="toolbar">
-                    </div>
-                </div>
-                <div class="olix-portlet-body">
-                {% for graph in graphs.postgres %}
-                    <img src="{{ path('olix_server_collectd_graph', {
-                        host     : graphs.host,
-                        plugin   : graph.plugin,
-                        pinst    : graph.plugin_instance|default('void'),
-                        type     : graph.type,
-                        tinst    : graph.type_instance|default('void'),
-                        timespan : timespan
-                    }) }}">
-                {% endfor %}
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-12">
-            <div class="olix-portlet olix-portlet-border">
-                <div class="olix-portlet-header">
-                    <div class="icon"><i class="fa fa-area-chart"></i></div>
-                    <div class="title">Monitoring de MYSQL</div>
-                    <div class="toolbar">
-                    </div>
-                </div>
-                <div class="olix-portlet-body">
-                {% for graph in graphs.mysql %}
-                    <img src="{{ path('olix_server_collectd_graph', {
-                        host     : graphs.host,
-                        plugin   : graph.plugin,
-                        pinst    : graph.plugin_instance|default('void'),
-                        type     : graph.type,
-                        tinst    : graph.type_instance|default('void'),
-                        timespan : timespan
-                    }) }}">
-                {% endfor %}
-                </div>
-            </div>
-        </div>
-
 </div>
 
 {% endblock %}
