@@ -1,0 +1,27 @@
+{% extends 'OlixAdminBundle::layout.html.twig' %}
+
+{% block header2 %}Management des services avec l'utilitaire MONIT{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="olix-portlet olix-portlet-border">
+                <div class="olix-portlet-header">
+                    <div class="icon"><i class="fa fa-circle"></i></div>
+                    <div class="title">Utilitaire MONIT</div>
+                    <div class="toolbar">
+                    </div>
+                </div>
+                <div class="olix-portlet-body" style="position: relative;">
+                    <img style="display:block; width:100%; height:auto;" src="data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7"/>
+                    <iframe src="http://{{ app.request.host }}:2812" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+

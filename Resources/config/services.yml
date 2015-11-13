@@ -1,3 +1,9 @@
+parameters:
+    olix_server.collectd_file: parameters.collectd.yml
+    olix_server.collectd_host: http://localhost/rtm/graph.php
 
 services:
 
+    olix_server.sidebar:
+        class: Olix\ServerBundle\Sidebar\ServerSidebar
+        arguments: [ "@security.context" ]

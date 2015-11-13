@@ -1,0 +1,93 @@
+{% extends 'OlixAdminBundle::layout.html.twig' %}
+
+{% block header2 %}Management des services avec l'utilitaire COLLECTD{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <form action="" method="get" id="fTimeSpan"  class="form-group">
+                <select name="timespan" class="form-control" onchange="$('#fTimeSpan').submit()">
+                    <option value="hour"{% if timespan == 'hour' %} selected="selected"{% endif %}>Dernière heure</option>
+                    <option value="day"{% if timespan == 'day' %} selected="selected"{% endif %}>Dernier jour</option>
+                    <option value="week"{% if timespan == 'week' %} selected="selected"{% endif %}>Dernière semaine</option>
+                    <option value="month"{% if timespan == 'month' %} selected="selected"{% endif %}>Dernier mois</option>
+                    <option value="year"{% if timespan == 'year' %} selected="selected"{% endif %}>Dernière année</option>
+                </select>
+            </form>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="olix-portlet olix-portlet-border">
+                <div class="olix-portlet-header">
+                    <div class="icon"><i class="fa fa-area-chart"></i></div>
+                    <div class="title">Monitoring du système</div>
+                    <div class="toolbar">
+                    </div>
+                </div>
+                <div class="olix-portlet-body">
+                {% for graph in graphs.system %}
+                    <img src="{{ path('olix_server_collectd_graph', {
+                        host     : graphs.host,
+                        plugin   : graph.plugin,
+                        pinst    : graph.plugin_instance|default('void'),
+                        type     : graph.type,
+                        tinst    : graph.type_instance|default('void'),
+                        timespan : timespan
+                    }) }}">
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="olix-portlet olix-portlet-border">
+                <div class="olix-portlet-header">
+                    <div class="icon"><i class="fa fa-area-chart"></i></div>
+                    <div class="title">Monitoring du réseau</div>
+                    <div class="toolbar">
+                    </div>
+                </div>
+                <div class="olix-portlet-body">
+                {% for graph in graphs.network %}
+                    <img src="{{ path('olix_server_collectd_graph', {
+                        host     : graphs.host,
+                        plugin   : graph.plugin,
+                        pinst    : graph.plugin_instance|default('void'),
+                        type     : graph.type,
+                        tinst    : graph.type_instance|default('void'),
+                        timespan : timespan
+                    }) }}">
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="olix-portlet olix-portlet-border">
+                <div class="olix-portlet-header">
+                    <div class="icon"><i class="fa fa-area-chart"></i></div>
+                    <div class="title">Monitoring d'Apache</div>
+                    <div class="toolbar">
+                    </div>
+                </div>
+                <div class="olix-portlet-body">
+                {% for graph in graphs.apache %}
+                    <img src="{{ path('olix_server_collectd_graph', {
+                        host     : graphs.host,
+                        plugin   : graph.plugin,
+                        pinst    : graph.plugin_instance|default('void'),
+                        type     : graph.type,
+                        tinst    : graph.type_instance|default('void'),
+                        timespan : timespan
+                    }) }}">
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,16 @@
+###
+# Gestion avec MONIT
+##
+olix_server_monit:
+    pattern:  /server/monit
+    defaults: { _controller: "OlixServerBundle:Monit:index" }
+
+###
+# Gestion avec COLLECTD
+##
+olix_server_collectd:
+    pattern:  /server/collectd
+    defaults: { _controller: "OlixServerBundle:Collectd:index" }
+olix_server_collectd_graph:
+    pattern:  /server/collectd/graph/{host}/{plugin}/{pinst}/{type}/{tinst}/{timespan}
+    defaults: { _controller: "OlixServerBundle:Collectd:graph", pinst: '', tinst: '' }
